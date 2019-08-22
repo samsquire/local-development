@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+while true; do
+   sleep 1
+   (cd app ; git status -z;
+   git add . && git commit -m "autocommit $(cat ../current-task)" ; git push -f app);
+done > autocommit.log 2>&1 
+
+

@@ -1,10 +1,36 @@
 #!/bin/bash
 
 echo """
-mkdir -p /repos/local
-chown -R sam:sam /repos
-cd /repos/local
+mkdir -p ~/repos/app
+cd repos/app
 git --bare init
-""" | ssh -i ../y -p 2222 sam@localhost sudo bash
+mkdir -p ~/deployed
+""" | ssh -i ../y -p 2222 localhost bash
 
-git remote add local sam@localhost:repos/local
+echo "Setting up hook"
+echo """
+#!/usr/bin/env bash
+echo I am post receive hook
+env
+unset GIT_DIR
+if [ -d ~/deployed/app ] ; then
+	cd ~/deployed/app
+	git fetch
+	git reset --hard origin/master
+	git pull origin master
+else
+	cd ~/deployed
+	git clone ~/repos/app
+fi
+touch ~/deployed/app/src/App.js
+""" | ssh -p 2222 localhost "tee > repos/app/hooks/post-update"
+
+echo "Making hook executable"
+echo """
+chmod +x repos/app/hooks/post-update
+""" | ssh -p 2222 localhost "sudo bash"
+
+echo "Pushing code"
+cd app
+git remote add app localhost:repos/app
+git push -u app master

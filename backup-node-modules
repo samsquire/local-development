@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo """
+tar -C deployed/app -cvf node_modules.tgz node_modules
+
+""" | ssh localhost "bash"
+
+scp localhost:node_modules.tgz .
+
