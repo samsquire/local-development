@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo """
+mkdir -p /repos/local
+chown -R sam:sam /repos
+cd /repos/local
+git --bare init
+""" | ssh -i ../y -p 2222 sam@localhost sudo bash
+
+git remote add local sam@localhost:repos/local

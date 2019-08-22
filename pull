@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+ssh -p 2222 sam@localhost -- "tar -C /home/sam/local -cvzf app.tgz --exclude node_modules login"
+
+scp -i ../y -P 2222 sam@localhost:/home/sam/local/app.tgz .
+
+tar -xvf app.tgz
