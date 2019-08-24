@@ -9,7 +9,7 @@ Place your nodejs app in a folder called app in this folder. Deploy to Linux Vir
 
 So you can use Windows development tools but deploy to a Linux environment and lose none of the debugging tools that are provided within the Linux environment.
 
-
+# Quickstart
 
 This project lets you develop in Windows and deploys an application to a local virtual machine using git.
 
@@ -36,4 +36,5 @@ ALL            ALL = (ALL) NOPASSWD: ALL
 ```
 
 10. Run `./setup`
+11. Now change App.js or index.html and the page will automatically be deployed.
 
