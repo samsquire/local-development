@@ -1,8 +1,6 @@
 # local-development
 
-This project is about developing from Windows and deploying to a Linux server
-
-This project assumes you do development from Windows
+Place your nodejs app in a folder called app in this folder. Deploy to Linux Virtual machine whenever you push it.
 
  * handles deployment for you
  * git push to deploy to local Ubuntu virtual machine
