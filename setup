@@ -5,7 +5,7 @@ mkdir -p ~/repos/app
 cd repos/app
 git --bare init
 mkdir -p ~/deployed
-""" | ssh -i ../y -p 2222 localhost bash
+""" | ssh -F ssh_config localhost bash
 
 echo "Setting up hook"
 echo """
@@ -23,12 +23,12 @@ else
 	git clone ~/repos/app
 fi
 touch ~/deployed/app/src/App.js
-""" | ssh -p 2222 localhost "tee > repos/app/hooks/post-update"
+""" | ssh -F ssh_config localhost "tee > repos/app/hooks/post-update"
 
 echo "Making hook executable"
 echo """
 chmod +x repos/app/hooks/post-update
-""" | ssh -p 2222 localhost "sudo bash"
+""" | ssh -F ssh_config localhost "sudo bash"
 
 echo "Pushing code"
 cd app

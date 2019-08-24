@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-ssh localhost -- "tar -C ~/deployed -cvzf app.tgz --exclude node_modules app"
+ssh -F ssh_config localhost -- "tar -C ~/deployed -cvzf app.tgz --exclude node_modules app"
 
-scp localhost:deployed/app.tgz .
+scp -F ssh_config localhost:deployed/app.tgz .
 
 tar -xvf app.tgz

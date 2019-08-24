@@ -1,0 +1,4 @@
+Host localhost
+    Port 2222
+    IdentityFile "~/Google Drive/y"
+    User sam
