@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+scp -F ssh_config node_modules.tgz localhost:/tmp
+echo """
+tar -C ~/deployed/app -xvf /tmp/node_modules.tgz
+""" | ssh -F ssh_config localhost bash
+

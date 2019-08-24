@@ -19,10 +19,12 @@ if [ -d ~/deployed/app ] ; then
 	git reset --hard origin/master
 	git pull origin master
 else
+	mkdir ~/deployed
 	cd ~/deployed
 	git clone ~/repos/app
 fi
 touch ~/deployed/app/src/App.js
+touch ~/deployed/app/public/index.html
 """ | ssh -F ssh_config localhost "tee > repos/app/hooks/post-update"
 
 echo "Making hook executable"
