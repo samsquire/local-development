@@ -1,6 +1,7 @@
 # local-development
 
-Place your nodejs app in a folder called app in this folder. Deploy to Linux Virtual machine whenever you push it.
+
+This computer is too slow for Vagrant. Place your nodejs app in a folder called app in this folder. Deploy to Linux Virtual machine whenever you commit.
 
  * handles deployment for you
  * git push to deploy to local Ubuntu virtual machine
