@@ -42,7 +42,8 @@ mkdir /mnt/sharedName
 sudo mount -t vboxsf sharedName /mnt/sharedName
 ```
 12. Update `ssh_config` in this directory for the path to your **private key**.
-14. Run `./autocommit` from Windows git bash 
-15. Run `./setup`
-16. Now change App.js or index.html and the page will automatically be deployed.
+14. update `current-task` as that is what the commit message will be.
+15. Run `./autocommit` from Windows git bash
+16. Run `./setup` to set up deployment git hooks
+17. Now change App.js or index.html and the page will automatically be deployed.
 
