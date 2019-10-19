@@ -31,11 +31,17 @@ UsePAM no
 AuthorizedKeysFile ssh/authorized_keys .ssh/authorized_keys2
 ```
 9. Enable passwordless sudo, sudo visudo
-
 ```
 ALL            ALL = (ALL) NOPASSWD: ALL
 ```
+10. Copy your public key to `~/.ssh/authorized_keys`.
+11. (You can either create a key in windows and share the public key to the guest or create a key in the vm and share the private key, I prefer sharing the public key with the VM and create the key from windows) In Windows create a folder, put your public key here, In virtualbox add a shared folder to the VM, **remember the name you gave it to virtualbox**, then mount the shared folder with:
 
-10. Run `./setup`
-11. Now change App.js or index.html and the page will automatically be deployed.
+```
+mkdir /mnt/sharedName
+sudo mount -t vboxsf sharedName /mnt/sharedName
+```
+10. Update `ssh_config` in this directory for the path to your key.
+11. Run `./setup`
+12. Now change App.js or index.html and the page will automatically be deployed.
 
