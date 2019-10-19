@@ -41,7 +41,8 @@ ALL            ALL = (ALL) NOPASSWD: ALL
 mkdir /mnt/sharedName
 sudo mount -t vboxsf sharedName /mnt/sharedName
 ```
-10. Update `ssh_config` in this directory for the path to your key.
-11. Run `./setup`
-12. Now change App.js or index.html and the page will automatically be deployed.
+12. Update `ssh_config` in this directory for the path to your **private key**.
+14. Run `./autocommit` from Windows git bash 
+15. Run `./setup`
+16. Now change App.js or index.html and the page will automatically be deployed.
 
